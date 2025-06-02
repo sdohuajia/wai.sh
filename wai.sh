@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# 一键安装脚本
 # 确保以 root 权限运行
 if [ "$EUID" -ne 0 ]; then
   echo "请以 root 权限运行此脚本: sudo $0"
