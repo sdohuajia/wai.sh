@@ -136,8 +136,9 @@ else
 fi
 
 # 运行 wai run
-echo "正在运行 wai run..."
-wai run || { echo "错误: wai run 执行失败"; exit 1; }
+echo "正在使用 screen 在后台运行 wai run..."
+screen -dmS wai bash -c "wai run || { echo '错误: wai run 执行失败'; exit 1; }" || { echo "错误: screen 执行失败"; exit 1; }
+echo "wai run 已启动在 screen 会话 'wai' 中，可用 'screen -r wai' 查看"
 
 # 清理缓存
 echo "正在清理安装缓存..."
