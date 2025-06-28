@@ -6,12 +6,6 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-# 检查网络连接
-if ! ping -c 1 google.com &> /dev/null; then
-  echo "错误: 无网络连接，请检查网络后重试"
-  exit 1
-fi
-
 # 更新系统软件包
 echo "正在更新系统软件包..."
 apt update && apt upgrade -y || { echo "错误: 系统更新失败"; exit 1; }
